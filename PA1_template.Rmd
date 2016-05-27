@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Loading and Preprocessing the data
 - Unzip and Load the data
 ```{r}
-unzip("repdata-data-activity.zip")
+if(!file.exists("activity.csv")) unzip("activity.zip")
 activity <- read.csv("activity.csv")
 ```
 - Process/ transform the data
@@ -114,7 +114,7 @@ names(stepsbyday) <- c("interval", "daylevel", "steps")
 
 - Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = "𝚕") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-```{r fig.width=7, fig.height=4}
+```{r}
 library(lattice)
 xyplot(steps ~ interval | daylevel, stepsbyday, type = "l", layout = c(1, 2), 
     xlab = "Interval", ylab = "Number of steps")

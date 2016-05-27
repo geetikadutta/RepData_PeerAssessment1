@@ -11,25 +11,8 @@ keep_md : true
 - Unzip and Load the data
 
 ```r
-unzip("repdata-data-activity.zip")
-```
-
-```
-## Warning in unzip("repdata-data-activity.zip"): error 1 in extracting from
-## zip file
-```
-
-```r
+if(!file.exists("activity.csv")) unzip("activity.zip")
 activity <- read.csv("activity.csv")
-```
-
-```
-## Warning in file(file, "rt"): cannot open file 'activity.csv': No such file
-## or directory
-```
-
-```
-## Error in file(file, "rt"): cannot open the connection
 ```
 - Process/ transform the data
 
